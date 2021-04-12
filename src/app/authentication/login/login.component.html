@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-margin-top ion-padding">
+    <ion-col class="ion-margin-top ion-padding">
+      
+      <ion-row>
+        <ion-col class="ion-no-padding">
+          <ion-img style="height: 128px;" src="assets/images/login.png"></ion-img>
+        </ion-col>
+      </ion-row>
+    
+      <form [formGroup]="form" (ngSubmit)="login()">
+        <ion-item lines="full">
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input type="text" formControlName="email" required></ion-input>
+        </ion-item>
+        <small *ngIf="verificaValidTouched(form.get('email'))" class="text-danger">E-mail inválido.</small>
+
+        <ion-item lines="full">
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" formControlName="password" required></ion-input>
+        </ion-item>
+        <small *ngIf="verificaValidTouched(form.get('password'))" class="text-danger">Senha é obrigatória.</small>
+
+        <ion-row>
+          <ion-col class="ion-no-padding">
+            <ion-button class="ion-margin-vertical" type="submit" expand="block">Entrar
+            </ion-button>
+            <ion-button class="ion-margin-vertical" [routerLink]="['/authentication/register']" color="danger" expand="block">Criar conta
+            </ion-button>
+            <center>
+              <a [routerLink]="['/authentication/forgot']" class="small-text">Recuperar senha</a>
+            </center>
+          </ion-col>
+        </ion-row>
+      </form>
+      
+    </ion-col>
+  </ion-row>
+</ion-content>
