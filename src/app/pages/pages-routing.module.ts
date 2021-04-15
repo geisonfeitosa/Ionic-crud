@@ -22,7 +22,7 @@ const routes: Routes = [
         path: 'sala',
         component: SalaComponent,
         data: {
-          title: 'Salas'
+          title: 'Ambientes'
         }
       },
       {

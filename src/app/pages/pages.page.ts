@@ -13,7 +13,7 @@ export class PagesPage implements OnInit {
 
   public appPages = [
     { title: 'Perfil', url: '/pages/perfil', icon: 'person-circle' },
-    { title: 'Salas', url: '/pages/sala', icon: 'pricetag' },
+    { title: 'Ambientes', url: '/pages/sala', icon: 'pricetag' },
     { title: 'Embarcados', url: '/pages/embarcado', icon: 'hardware-chip' },
     { title: 'Sair', url: '/authentication/login', icon: 'exit' }
   ];

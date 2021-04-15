@@ -1,6 +1,9 @@
+import { SalaComponent } from './sala/sala.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { EmbarcadoComponent } from './embarcado/embarcado.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,8 +16,14 @@ import { PagesPage } from './pages.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     PagesPageRoutingModule
   ],
-  declarations: [PagesPage]
+  declarations: [
+    PagesPage,
+    EmbarcadoComponent,
+    PerfilComponent,
+    SalaComponent
+  ]
 })
 export class PagesPageModule {}

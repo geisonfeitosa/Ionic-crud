@@ -1,4 +1,3 @@
-import { filter } from 'rxjs/operators';
 import { AlertService } from './../../services/alert.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
