@@ -4,7 +4,10 @@
   <a href="#">
     <img width="300" src="./src/assets/images/print1.png">&nbsp;
 	<img width="300" src="./src/assets/images/print2.png">&nbsp;
-	<img width="300" src="./src/assets/images/print3.png">
+	<img width="300" src="./src/assets/images/print3.png">&nbsp;
+	<img width="300" src="./src/assets/images/print4.png">&nbsp;
+	<img width="300" src="./src/assets/images/print5.png">&nbsp;
+	<img width="300" src="./src/assets/images/print6.png">
   </a>
 </p>
 

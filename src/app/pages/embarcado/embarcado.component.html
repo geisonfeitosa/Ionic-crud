@@ -1,3 +1,79 @@
-<p>
-  embarcado works!
-</p>
+<div class="content-full">
+  <form *ngIf="isNew" [formGroup]="form" (ngSubmit)="save()" class="ion-padding">
+    <ion-item lines="full">
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-input type="text" formControlName="descricao"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Firmware</ion-label>
+      <ion-input type="text" formControlName="firmware"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Status</ion-label>
+      <ion-input type="text" formControlName="status"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Modo de Comunicação</ion-label>
+      <ion-select formControlName="comunicacao" interface="action-sheet">
+        <ion-select-option *ngFor="let item of comunicacoes" [value]="item">{{item}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">IP do Embarcado</ion-label>
+      <ion-input type="number" formControlName="ipEmbarcado"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Mac do Embarcado</ion-label>
+      <ion-input type="number" formControlName="macEmbarcado"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">IP do Gateway</ion-label>
+      <ion-input type="number" formControlName="ipGateway"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">IP do Mqtt</ion-label>
+      <ion-input type="number" formControlName="ipMqtt"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Porta do Mqtt</ion-label>
+      <ion-input type="number" formControlName="portaMqtt"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Tópicos do Mqtt</ion-label>
+      <ion-select formControlName="topicosMqtt" interface="action-sheet" multiple>
+        <ion-select-option *ngFor="let item of topicosMqttList" [value]="item">{{item}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button class="ion-margin-vertical" type="submit">Salvar</ion-button>&nbsp;
+        <ion-button class="ion-margin-vertical" color="danger" (click)="isNew = false">Cancelar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  
+  <ion-list class="ion-padding-end" *ngIf="!isNew">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button class="ion-margin-vertical" (click)="isNew = true">Adicionar</ion-button>
+      </ion-col>
+    </ion-row>
+  
+    <ion-label *ngIf="embarcados.length == 0">Nenhum embarcado cadastrado.</ion-label>
+  
+    <ion-item *ngFor="let item of embarcados; let i = index" (click)="detail(item)">
+      <ion-label> {{item.descricao}} {{item.status}} {{item.comunicacao}}</ion-label>
+      <ion-icon name="trash-outline" (click)="delete(i)"></ion-icon>
+    </ion-item>
+  </ion-list>
+</div>

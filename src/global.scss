@@ -29,6 +29,12 @@
     color: red;
 }
 
+.content-full {
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 50px;
+}
+
 ion-button {
     min-width: 120px;
 }

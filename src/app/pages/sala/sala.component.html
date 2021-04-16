@@ -1,60 +1,62 @@
-<form *ngIf="isNew" [formGroup]="form" (ngSubmit)="save()" class="ion-padding">
-  <ion-item lines="full">
-    <ion-label position="floating">Nome</ion-label>
-    <ion-input type="text" formControlName="nome"></ion-input>
-  </ion-item>
-
-  <ion-item lines="full">
-    <ion-label position="floating">Unidade</ion-label>
-    <ion-input type="text" formControlName="unidade"></ion-input>
-  </ion-item>
-
-  <ion-item lines="full">
-    <ion-label position="floating">Bloco</ion-label>
-    <ion-input type="text" formControlName="bloco"></ion-input>
-  </ion-item>
-
-  <ion-item lines="full">
-    <ion-label position="floating">Tipo</ion-label>
-    <ion-select formControlName="tipo" interface="action-sheet">
-      <ion-select-option *ngFor="let item of tipos" [value]="item">{{item}}</ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item lines="full">
-    <ion-label position="floating">Capacidade</ion-label>
-    <ion-input type="number" formControlName="capacidade"></ion-input>
-  </ion-item>
-
-  <ion-item lines="full">
-    <ion-label position="floating">Qtd. Computadores</ion-label>
-    <ion-input type="number" formControlName="qtComputador"></ion-input>
-  </ion-item>
-
-  <ion-item lines="full">
-    <ion-label position="floating">IP da Câmera</ion-label>
-    <ion-input type="number" formControlName="ipCamera"></ion-input>
-  </ion-item>
-
-  <ion-row>
-    <ion-col class="ion-no-padding">
-      <ion-button class="ion-margin-vertical" type="submit">Salvar</ion-button>&nbsp;
-      <ion-button class="ion-margin-vertical" color="danger" (click)="isNew = false">Cancelar</ion-button>
-    </ion-col>
-  </ion-row>
-</form>
-
-<ion-list class="ion-padding-end" *ngIf="!isNew">
-  <ion-row>
-    <ion-col class="ion-no-padding">
-      <ion-button class="ion-margin-vertical" (click)="isNew = true">Adicionar</ion-button>
-    </ion-col>
-  </ion-row>
-
-  <ion-label *ngIf="ambientes.length == 0">Nenhum ambiente cadastrado.</ion-label>
-
-  <ion-item *ngFor="let item of ambientes; let i = index" (click)="detail(item)">
-    <ion-label> {{item.nome}} {{item.unidade}} {{item.bloco}}</ion-label>
-    <ion-icon name="trash-outline" (click)="delete(i)"></ion-icon>
-  </ion-item>
-</ion-list>
+<div class="content-full">
+  <form *ngIf="isNew" [formGroup]="form" (ngSubmit)="save()" class="ion-padding">
+    <ion-item lines="full">
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Unidade</ion-label>
+      <ion-input type="text" formControlName="unidade"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Bloco</ion-label>
+      <ion-input type="text" formControlName="bloco"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Tipo</ion-label>
+      <ion-select formControlName="tipo" interface="action-sheet">
+        <ion-select-option *ngFor="let item of tipos" [value]="item">{{item}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Capacidade</ion-label>
+      <ion-input type="number" formControlName="capacidade"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Qtd. Computadores</ion-label>
+      <ion-input type="number" formControlName="qtComputador"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">IP da Câmera</ion-label>
+      <ion-input type="number" formControlName="ipCamera"></ion-input>
+    </ion-item>
+  
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button class="ion-margin-vertical" type="submit">Salvar</ion-button>&nbsp;
+        <ion-button class="ion-margin-vertical" color="danger" (click)="isNew = false">Cancelar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  
+  <ion-list class="ion-padding-end" *ngIf="!isNew">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button class="ion-margin-vertical" (click)="isNew = true">Adicionar</ion-button>
+      </ion-col>
+    </ion-row>
+  
+    <ion-label *ngIf="ambientes.length == 0">Nenhum ambiente cadastrado.</ion-label>
+  
+    <ion-item *ngFor="let item of ambientes; let i = index" (click)="detail(item)">
+      <ion-label> {{item.nome}} {{item.unidade}} {{item.bloco}}</ion-label>
+      <ion-icon name="trash-outline" (click)="delete(i)"></ion-icon>
+    </ion-item>
+  </ion-list>
+</div>

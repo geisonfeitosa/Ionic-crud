@@ -11,6 +11,11 @@ export class PagesPage implements OnInit {
 
   title: String;
 
+  user = {
+    name: 'User Teste',
+    email: 'teste@teste.com'
+  }
+
   public appPages = [
     { title: 'Perfil', url: '/pages/perfil', icon: 'person-circle' },
     { title: 'Ambientes', url: '/pages/sala', icon: 'pricetag' },
@@ -25,6 +30,9 @@ export class PagesPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    let userStorage = localStorage.getItem("user");
+    if (userStorage) this.user = JSON.parse(userStorage);
+
     this.router.events.subscribe(() => {
       this.title = this.activatedRoute.snapshot.routeConfig.children.filter(i => i.path == this.router.url.replace("/pages/", "")).map(i => i.data.title)[0];
     });

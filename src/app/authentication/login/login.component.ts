@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    localStorage.removeItem("user");
+
     this.form = this.fb.group({
       email: [
         null,
@@ -58,6 +60,7 @@ export class LoginComponent implements OnInit {
       if (users.length > 0) {
         let user = users[0];
         if (user.password === this.form.get('password').value) {
+          localStorage.setItem("user", JSON.stringify({name: user.name, email: user.email}));
           this.router.navigate(['/pages/sala']);
           return;
         }

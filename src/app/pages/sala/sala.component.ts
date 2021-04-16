@@ -36,8 +36,8 @@ export class SalaComponent implements OnInit {
   }
 
   async initAmbientes() {
-    const photoList = await Storage.get({ key: "ambientes" });
-    this.ambientes = JSON.parse(photoList.value) || [];
+    const amStorage = await Storage.get({ key: "ambientes" });
+    this.ambientes = JSON.parse(amStorage.value) || [];
   }
 
   save() {

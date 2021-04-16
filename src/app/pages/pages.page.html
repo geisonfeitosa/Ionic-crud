@@ -4,12 +4,12 @@
       <ion-list id="inbox-list">
         <ion-list-header>
           <ion-avatar>
-            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            <img src="assets/images/user.png">
           </ion-avatar>
-          Inbox
+          {{user.name}}
         </ion-list-header>
         <ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+          <ion-note>{{user.email}}</ion-note>
         </ion-list-header>
 
         <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
