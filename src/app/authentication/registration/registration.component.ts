@@ -25,6 +25,7 @@ export class RegistrationComponent implements OnInit {
         null,
         Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])
       ],
+      celular: [null],
       password: [null, Validators.compose([Validators.required])],
       confirmPassword: [null, Validators.required],
     });

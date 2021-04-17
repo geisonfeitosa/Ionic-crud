@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-row class="ion-margin-top ion-padding">
+  <ion-row class="ion-padding-horizontal">
     <ion-col class="ion-padding">
 
       <ion-row>
@@ -30,6 +30,11 @@
         </ion-item>
         <small *ngIf="verificaValidTouched(form.get('email'))" class="text-danger">E-mail inválido.</small>
   
+        <ion-item lines="full">
+          <ion-label position="floating">Celular</ion-label>
+          <ion-input type="text" formControlName="celular"></ion-input>
+        </ion-item>
+
         <ion-item lines="full">
           <ion-label position="floating">Senha</ion-label>
           <ion-input type="password" formControlName="password" required></ion-input>
