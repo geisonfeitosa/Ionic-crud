@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     localStorage.removeItem("user");
+    localStorage.removeItem("access_token");
 
     this.form = this.fb.group({
       email: [
@@ -61,6 +62,7 @@ export class LoginComponent implements OnInit {
         let user = users[0];
         if (user.password === this.form.get('password').value) {
           localStorage.setItem("user", JSON.stringify({name: user.name, email: user.email}));
+          localStorage.setItem("access_token", "123456");
           this.router.navigate(['/pages/sala']);
           return;
         }
